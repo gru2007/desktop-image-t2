@@ -1,12 +1,12 @@
-name: Vanilla Desktop
-id: desktop
+name: Vanilla Desktop T2-Linux
+id: desktop-t2
 
 stages:
 - id: build
-  base: ghcr.io/vanilla-os/core:main
+  base: ghcr.io/gru2007/core-t2:main
   singlelayer: false
   labels:
-    maintainer: Vanilla OS Contributors
+    maintainer: Gru (Ruslan Artemev)
   args:
     DEBIAN_FRONTEND: noninteractive
   runs:
