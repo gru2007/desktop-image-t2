@@ -19,4 +19,5 @@ modules:
       - name: dkms-linux-headers
         type: shell
         commands:
-          - apt install -y apple-t2-lts
+          - apt install -y linux-t2-lts
+          - apt install -y apple-firmware
