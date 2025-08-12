@@ -1,0 +1,13 @@
+name: kde-essentials
+type: apt
+source:
+  packages:
+  - dolphin
+  - konsole
+  - kde-config-gtk-style
+  - kde-config-gtk-style-preview
+  - kde-spectacle
+  - kdeconnect
+  - kdegraphics-thumbnailers
+  - kio-extras
+

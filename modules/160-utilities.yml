@@ -2,12 +2,11 @@ name: utilities
 type: apt
 source:
   packages:
-  - gnome-disk-utility
-  - gnome-system-monitor
-  - gnome-sushi
-  - gnome-software
+  - plasma-discover
+  - plasma-discover-backend-flatpak
+  - plasma-systemmonitor
+  - kio-extras
   - ghostscript
-  - zenity
+  - kdialog
   - flatpak
-  - gnome-software-plugin-flatpak
   - locales-all

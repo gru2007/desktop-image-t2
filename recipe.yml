@@ -21,7 +21,7 @@ stages:
     - sed -i '4,10d' /etc/profile
     - apt update
     - apt clean
-    - apt-mark hold snapd gnome-software-plugin-snap
+     - apt-mark hold snapd
     - apt -y install squashfs-tools minisign
 
   - name: vanilla-tools
@@ -43,7 +43,7 @@ stages:
       - modules/00-vanilla-desktop-base.yml
       - modules/00-vanilla-backgrounds.yml
       - modules/00-vanilla-first-setup.yml
-      - modules/00-vanilla-gnome-default-settings.yml
+      # KDE default settings module removed (no upstream repo)
       - modules/00-vanilla-system-operator.yml
       - modules/00-vanilla-apx-gui.yml
       - modules/00-vanilla-tour.yml
@@ -53,11 +53,10 @@ stages:
       - modules/02-waydroid-modules.yml
       - modules/03-fswarn.yml
       - modules/10-vanilla-abroot-rollback-notifier.yml
-      - modules/20-gnome-core.yml
-      - modules/21-gnome-control-center.yml
-      - modules/30-gnome-essentials.yml
-      - modules/35-nautilus-terminal-rightclick.yml
-      - modules/40-gnome-appearance.yml
+      - modules/20-kde-core.yml
+      - modules/25-sddm-config.yml
+      - modules/30-kde-essentials.yml
+      - modules/40-kde-appearance.yml
       - modules/50-laptop-goodies.yml
       - modules/60-media.yml
       - modules/80-printers.yml
@@ -70,8 +69,7 @@ stages:
       - modules/131-plymouth-theme-vanilla.yml
       - modules/140-password.yml
       - modules/160-utilities.yml
-      - modules/170-gnome-software-vso-plugin.yml
-      - modules/200-gnome-common.yml
+      
       - modules/210-libs-extra.yml
       - modules/300-hide-image-magick.yml
       - modules/997-ensure-exec-hooks.yml
@@ -84,16 +82,7 @@ stages:
     commands:
     - echo "\nActions=rescue;\n[Desktop Action rescue]\nName=Rescue Mode\nExec=blackbox-terminal -c /bin/bash\nIcon=com.raggesilver.BlackBox" >> /usr/share/applications/com.raggesilver.BlackBox.desktop
 
-  - name: fix-gdm-permissions-service
-    type: shell
-    commands:
-    - mkdir -p /etc/systemd/system/multi-user.target.wants/
-    - ln -s /usr/lib/systemd/system/fix-gdm-permissions.service /etc/systemd/system/multi-user.target.wants/
-
-  - name: gnome-software-setup
-    type: shell
-    commands:
-    - rm /usr/lib/*/gnome-software/plugins-*/libgs_plugin_packagekit.so
+  # Removed GNOME/GDM/Discover specific setup blocks
 
   - name: cleanup
     type: shell

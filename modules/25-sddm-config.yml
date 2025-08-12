@@ -1,0 +1,7 @@
+name: sddm-config
+type: shell
+commands:
+  - mkdir -p /etc/sddm.conf.d
+  - printf "[Theme]\nCurrent=breeze\n" > /etc/sddm.conf.d/10-theme.conf
+  - systemctl enable sddm.service
+

@@ -1,0 +1,15 @@
+name: kde-core
+type: apt
+source:
+  packages:
+  - sddm
+  - xorg
+
+  - kde-standard
+  - plasma-desktop
+  - plasma-workspace
+
+  - dbus-x11
+  - xdg-desktop-portal
+  - xdg-desktop-portal-kde
+

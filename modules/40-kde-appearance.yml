@@ -1,0 +1,10 @@
+name: kde-appearance
+type: apt
+source:
+  packages:
+  - breeze
+  - breeze-gtk-theme
+  - breeze-icon-theme
+  - kde-style-breeze
+  - sddm-theme-debian-breeze
+
